@@ -1,0 +1,16 @@
+package com.project.book.dao;
+
+
+import com.project.book.model.Book;
+
+public class BookDAO extends DAO{
+	public void save(Book book) {
+        try {
+            begin();
+            getSession().save(book);
+            commit();
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+    }
+}

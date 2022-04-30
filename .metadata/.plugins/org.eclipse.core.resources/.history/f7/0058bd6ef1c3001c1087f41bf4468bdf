@@ -1,0 +1,50 @@
+package com.project.book.controllers;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.project.book.model.Book;
+import com.project.book.services.BookServiceImpl;
+
+@Controller
+public class BookController {
+	@Autowired
+	private BookServiceImpl bookServiceImpl;
+@GetMapping("/addBookForm")
+public String openAddBookForm(Model model) {
+	 model.addAttribute("book", new Book());
+	return "add_book_form";
+}
+
+@PostMapping("/add_book")
+public String addBook(Book book, @RequestParam("image") MultipartFile multipartFile) {
+	String fileName = "image_" + book.getIsbn();
+	book.setImageFile(multipartFile);
+	try {
+		book.getImageFile().transferTo(new File("C:\\images"));
+	} catch (IllegalStateException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	book.setBookImage(fileName);
+	bookServiceImpl.addBook(book);
+//	String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+//	book.setBookImage(fileName);
+//	Book book1 = bookServiceImpl.addBook(book);
+//    String uploadDir = "book-images/" + book1.getId();
+//    FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+	return "add_book_success";
+}
+}

@@ -1,0 +1,18 @@
+package com.project.book.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.project.book.dao.BookDAO;
+import com.project.book.model.Book;
+
+public class BookServiceImpl implements BookService{
+@Autowired
+private BookDAO bookDAO;
+	@Override
+	public Book addBook(Book book) {
+		// TODO Auto-generated method stub
+		bookDAO.save(book);
+		return book;
+	}
+
+}

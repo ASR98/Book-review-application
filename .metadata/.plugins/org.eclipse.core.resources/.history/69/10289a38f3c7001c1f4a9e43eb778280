@@ -1,0 +1,16 @@
+package com.project.book.dao;
+
+
+import com.project.book.model.User;
+
+public class UserDAO extends DAO{
+	public void save(User user) {
+        try {
+            begin();
+            getSession().save(user);
+            commit();
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+    }
+}

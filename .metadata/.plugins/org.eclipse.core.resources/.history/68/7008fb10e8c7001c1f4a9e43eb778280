@@ -1,0 +1,11 @@
+package com.project.book.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.project.book.model.Book;
+
+public interface BookDAO extends JpaRepository<Book, String>{
+	@Query("SELECT b FROM Book b WHERE b.isbn = ?1")
+	   public Book findByISBN(String isbn);
+}

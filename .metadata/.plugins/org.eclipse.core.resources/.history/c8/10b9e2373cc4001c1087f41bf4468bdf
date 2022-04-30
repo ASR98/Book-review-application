@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Books</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    function rowClicked(value) {
+        location.href = "/getBookDetails?param=" + value;
+    }
+</script>
+</head>
+<body>
+<div th:insert="/header"></div>
+<div th:style="'display:flex;'">
+<div class="card-body" th:each="book:${books}" th:onclick="|window.location.href='/getBook?${book}'|">
+	<img th:src="@{${book.imageFilePath}}" width="200" height="200" />
+  <h5 class="card-title" th:text="${book.bookName}" />
+  <p class="card-text" th:text="${book.genre}" />
+</div >
+</div>
+</body>
+</html>

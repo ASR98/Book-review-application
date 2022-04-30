@@ -1,0 +1,13 @@
+package com.project.book.services;
+
+import com.project.book.model.Book;
+
+public class BookServiceImpl implements BookService{
+
+	@Override
+	public Book addBook(Book book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

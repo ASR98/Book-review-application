@@ -1,0 +1,16 @@
+package com.project.book.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.project.book.model.Book;
+
+@Controller
+public class BookController {
+@GetMapping("/addBookForm")
+public String openAddBookForm(Model model) {
+	 model.addAttribute("book", new Book());
+	return "add_book_form";
+}
+}

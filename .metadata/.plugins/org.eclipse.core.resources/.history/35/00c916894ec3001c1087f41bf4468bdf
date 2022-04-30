@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:style="'display:flex; justify-content:center;'">
+<a th:href="@{/register}" th:style="'padding:1rem'">Home</a>
+<h1 th:style="'margin-right:auto; margin-left:auto;'">BookWorms</h1>
+<a th:href="@{/register}" th:style="'padding:1rem'">Register</a>
+<a th:href="@{/login}" th:style="'padding:1rem'">Login</a>
+</div>
+</body>
+</html>

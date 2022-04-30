@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add Book Form</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container text-center">
+        <div>
+            <h1>Add Book</h1>
+        </div>
+        <form th:action="@{/add_book}" th:object="${book}"
+            method="POST" style="max-width: 600px; margin: 0 auto;"
+            enctype="multipart/form-data">
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Book Name: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{book_name}" class="form-control" required />
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Author: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{author}" class="form-control"
+                            required/>
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label class="col-4 col-form-label">ISBN: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{isbn}" class="form-control"
+                            required minlength="10" maxlength="13"/>
+                </div>
+            </div>
+             
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Genre: </label>
+                <div class="col-8">
+                    <select th:field="*{genre}">
+    				<option th:value="'Action and Adventure'" th:text="Action and Adventure"></option>
+    				<option th:value="'Classics'" th:text="Classics"></option>
+    				<option th:value="'Comic Book or Graphic Novel'" th:text="Comic Book or Graphic Novel"></option>
+    				<option th:value="'Detective and Mystery'" th:text="Detective and Mystery"></option>
+    				<option th:value="'Fantasy'" th:text="Fantasy"></option>
+    				<option th:value="'Historical Fiction'" th:text="Historical Fiction"></option>
+    				<option th:value="'Horror'" th:text="Horror"></option>
+    				<option th:value="'Literary Fiction'" th:text="Literary Fiction"></option>
+    				<option th:value="'Romance'" th:text="Romance"></option>
+    				<option th:value="'Science Fiction'" th:text="Science Fiction (Sci-Fi)"></option>
+    				<option th:value="'Short Stories'" th:text="Short Stories"></option>
+    				<option th:value="'Suspense and Thrillers'" th:text="Suspense and Thrillers"></option>
+    				<option th:value="'True Crime'" th:text="True Crime"></option>
+					</select>
+                </div>
+            </div>
+             <div class="form-group row">
+                <label class="col-4 col-form-label">Image of the Book: </label>
+                <div class="col-8">
+            <input type="file" name="image" accept="image/png, image/jpeg" />
+                </div>
+             </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</body>
+</html>
