@@ -21,7 +21,8 @@ User Profile:
 Users can change their password and update their profile information.
 
 ## Technical Stack
-Client Side:
+## Client Side:
+
 HTML
 
 CSS
