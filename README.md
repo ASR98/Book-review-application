@@ -3,38 +3,42 @@ This repository contains the source code for a Book Review Website, which serves
 
 ## Functionalities
 User Registration and Login:
-
 Users can create an account and log in to the portal.
-Book Search and Filtering:
 
+Book Search and Filtering:
 All users can search for books based on criteria such as author, title keyword, and genre.
 Books can be filtered using various criteria.
 Users can check ratings and comments for each book.
-Book Rating and Comments:
 
+Book Rating and Comments:
 Only registered users who are logged in can rate books and leave comments.
 Users can engage in discussions about books with other readers.
+
 Book Lists:
-
 Logged-in users can add books to their wish list, currently reading list, or completed reading list.
-User Profile:
 
+User Profile:
 Users can change their password and update their profile information.
+
 ## Technical Stack
 Client Side:
-
 HTML
+
 CSS
+
 Thymeleaf
 
 ## Server Side:
 
 Spring Boot
+
 Hibernate
-#Database:
+
+## Database:
 
 MySQL
-Server:
+
+## Server:
 
 Apache Tomcat
 ## Getting Started
