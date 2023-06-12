@@ -1,5 +1,5 @@
 # Book Review Application
-This repository contains the source code for a Book Review Website, which serves as a single stop for readers to refer to various books and share their experiences. The website allows users to search and filter books based on criteria such as genre and author. Additionally, registered users can rate books, leave comments, and engage in discussions with other readers. They can also write short blogs about books. The website is built using the following technologies:
+This repository contains the source code for a Book Review Website, which serves as a single stop for readers to refer to various books and share their experiences. The website allows users to search and filter books based on criteria such as genre and author. Additionally, registered users can rate books, leave comments, and engage in discussions with other readers. They can also write short blogs about books. 
 
 ## Functionalities
 User Registration and Login:
