@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
 
 import com.project.book.model.Book;
+import com.project.book.model.User;
 @Component
 public class BookDAO extends DAO{
 	public void save(Book book) {
@@ -27,7 +28,9 @@ public class BookDAO extends DAO{
 	}
 	
 	public Book getBook(String isbn) {
-		return getSession().get(Book.class, isbn);
+		Query query = getSession().createQuery("FROM Book WHERE isbn = :isbn");
+		query.setParameter("isbn", isbn);
+		return (Book) query.uniqueResult();
 	}
 	
 }

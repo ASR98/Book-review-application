@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.book.model.Book;
+import com.project.book.model.Review;
 import com.project.book.services.BookServiceImpl;
 import com.project.book.util.FileUploadUtil;
 
@@ -26,7 +27,7 @@ public String openAddBookForm(Model model) {
 	return "add_book_form";
 }
 
-@PostMapping("/add_book")
+@PostMapping("/plan")
 public String addBook(Book book, @RequestParam("image") MultipartFile multipartFile) {
 	String fileName = "image_" + book.getIsbn();
 	book.setBookImage(fileName);
@@ -41,16 +42,18 @@ public String addBook(Book book, @RequestParam("image") MultipartFile multipartF
 	return "add_book_success";
 }
 
-@GetMapping("/books")
+@GetMapping("")
 public String getAllBooks(Model model) {
 	model.addAttribute("books", bookServiceImpl.getAllBooks());
-	System.out.println("hellooooo");
-	return "books_dashboard";
+	return "index";
 }
 
 @GetMapping("/getBook")
-public String getBookByISBN(@RequestParam("book") String isbn) {
-	bookServiceImpl.getBookByISBN(isbn);
+public String getBookByISBN(@RequestParam("isbn") String isbn, Model model) {
+	Book book = bookServiceImpl.getBookByISBN(isbn);
+	System.out.println("book" + book);
+	model.addAttribute("book", book);
+	 model.addAttribute("review", new Review());
 	return "book-details";
 }
 }

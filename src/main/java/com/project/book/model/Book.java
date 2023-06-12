@@ -1,12 +1,16 @@
 package com.project.book.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -32,6 +36,15 @@ public class Book {
 	    
 	    @Column(name="image")
 	    private String bookImage;
+	    
+	    @Column(name="description")
+	    private String description;
+	    
+	    @ManyToOne
+	    private User user;
+	    
+	    @OneToMany(mappedBy = "book")
+	    private Set<Review> reviews = new HashSet<Review>();
 	    
 		@Transient
 		private String imageFilePath;
@@ -93,5 +106,11 @@ public class Book {
 		public void setGenre(String genre) {
 			this.genre = genre;
 		}
-	  
+		public String getDescription() {
+			return description;
+		}
+
+		public void setDescription(String description) {
+			this.description = description;
+		}
 }

@@ -18,10 +18,10 @@ import com.project.book.services.UserServiceImpl;
 public class UserController {
 @Autowired
 private UserServiceImpl userServiceImpl;
-@GetMapping("")
-public String viewHomePage() {
-    return "index";
-}
+//@GetMapping("")
+//public String viewHomePage() {
+//    return "index";
+//}
 @RequestMapping(value = "/register_user", method=RequestMethod.POST)
 public String registerUser(User user) {
 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

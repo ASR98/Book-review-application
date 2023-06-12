@@ -13,9 +13,9 @@
 </script>
 </head>
 <body>
-<div th:insert="/header"></div>
-<div th:style="'display:flex;'">
-<div class="card-body" th:each="book:${books}" th:attr="onclick=|window.location.href='/getBook?book=${book}'|">
+
+<div th:style="'display:flex;flex-wrap:wrap'">
+<div class="card-body" th:each="book:${books}" th:attr="onclick=|window.location.href='/getBook?isbn=${book.isbn}'|">
 	<img th:src="@{${book.imageFilePath}}" width="200" height="200" />
   <h5 class="card-title" th:text="${book.bookName}" />
   <p class="card-text" th:text="${book.genre}" />

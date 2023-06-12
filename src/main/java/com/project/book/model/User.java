@@ -1,12 +1,15 @@
 package com.project.book.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.OneToMany;
 @Entity
 @Table(name = "users")
 public class User {
@@ -25,7 +28,13 @@ public class User {
 	     
 	    @Column(name = "last_name", nullable = false, length = 20)
 	    private String lastName;
-
+	    
+	    @OneToMany(mappedBy="user")
+	    private Set<Book> wishlist = new HashSet<Book>();
+	    
+	    @OneToMany(mappedBy="user")
+	    private Set<Review> review = new HashSet<Review>();
+	    
 		public Long getId() {
 			return id;
 		}

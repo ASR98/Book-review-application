@@ -3,11 +3,62 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Welcome to CodeJava Home</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrapless-star-rating/star-rating.css} "/>
+    
 </head>
 <body>
-Success
+<div th:insert="/header"></div>
+<div class="container row text-center">
+
+        <div class="col-4">
+            <img th:src="@{${book.imageFilePath}}" width="200" height="200" />
+            <form th:action="@{/add_review}" th:object="${review}"
+            method="POST">
+            <input value="0" type="hidden" class="rating" data-glyphicon="0"
+               th:field="*{ratings}">
+            <textarea th:field="*{reviewDesc}"></textarea>
+            <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+        
+<div class="col-8">
+<div class="row">
+                <label class="col-4">Name: </label>
+                <div class="col-8">
+                   <p th:text="${book.bookName}"></p>
+                </div>
+            </div>
+	<div class="row">
+                <label class="col-4">ISBN: </label>
+                <div class="col-8">
+                   <p th:text="${book.isbn}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-4">Author: </label>
+                <div class="col-8">
+                   <p th:text="${book.author}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-4">Genre: </label>
+                <div class="col-8">
+                   <p th:text="${book.genre}"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                   <p th:text="${book.description}"></p>
+                </div>
+            </div>
+</div>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/bootstrapless-star-rating/star-rating.min.js}"></script>
 </body>
 </html>

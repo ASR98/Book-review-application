@@ -14,5 +14,6 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="com.project.book.model.Book" />
         <mapping class="com.project.book.model.User" />
+        <mapping class="com.project.book.model.Review" />
     </session-factory>
 </hibernate-configuration>
