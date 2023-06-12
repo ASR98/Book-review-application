@@ -33,6 +33,8 @@ Thymeleaf
 
 Spring Boot
 
+Spring Security
+
 Hibernate
 
 ## Database:
